@@ -66,10 +66,14 @@ driver.find_element(By.XPATH, '//*[@id="popover-content"]/div/div/section/div[1]
 
 
 driver.get('https://passport.gitcoin.co/')
-driver.find_element(By.XPATH,'//*[@id="__next"]/div/div/div/div[2]/div/div/button/span[2]').click()
+#Sign in with Ethereum
+driver.find_element(By.XPATH,'//*[@id="__next"]/div/div/div/div/button').click()
 time.sleep(2)
-driver.find_element(By.XPATH,'/html/body/onboard-v2//section/div/div/div/div/div/div/div[2]/div[3]/div/div/div/div[1]/button/div').click()
-time.sleep(2)
+#Connect Wallet
+shadow = driver.find_element(By.XPATH, '/html/body/onboard-v2').shadow_root
+shadow.find_element(By.CSS_SELECTOR, '[class="wallet-button-container svelte-1vlog3j"]').click()
+time.sleep(5)
+#
 driver.find_element(By.XPATH,'//*[@id="app-content"]/div/div[2]/div/div[3]/div[2]/button[2]').click()
 time.sleep(2)
 
